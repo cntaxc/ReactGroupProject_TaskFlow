@@ -2,6 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import TaskListView from './components/TaskListView';
+import AddTaskView from './components/AddTaskView';
 
 function Header() {
   return (
@@ -10,7 +12,8 @@ function Header() {
         <h2>TaskManiger</h2>
         <nav>
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">Add Task</Link>
+          <Link to="/addtask" className="nav-link">AddTask</Link>
+          <Link to="/tasklist" className="nav-link">TaskList</Link>
         </nav>
       </div>
     </header>
@@ -33,6 +36,17 @@ function AddTask() {
       <h1>Add Task</h1>
       <p>This is a sample React app containerized with Docker.</p>
       <p>Features:</p>
+      <button>Add Task</button>
+    </div>
+  );
+}
+
+function ViewTask() {
+  return (
+    <div class ="container">
+      <h1>Add Task</h1>
+      <p>This is a sample React app containerized with Docker.</p>
+      <p>Features:</p>
       <ul>
         <li>React 18</li>
         <li>React Router</li>
@@ -46,24 +60,27 @@ function AddTask() {
 function App() {
   return (
     <Router>
+      <Header />
       <div className="App">
         <nav className="navbar">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">AddTask</Link>
+          <Link to="/addtask" className="nav-link">AddTask</Link>
+          <Link to="/viewtask" className="nav-link">ViewTask</Link>
         </nav>
         
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addtask" element={<AddTask />} />
+            <Route path="/addtask" element={<AddTaskView />} />
+            <Route path="/tasklist" element={<TaskListView />} />
           </Routes>
         </main>
       </div>
+      <Footer />
     </Router>
   );
 }
 
-// Gawa ni GPT with bootstrap design
 function Footer() {
   return (
     <footer className="footer bg-dark text-light py-3 mt-auto"> 
