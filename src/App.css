@@ -7,9 +7,10 @@
 
 .navbar {
   background-color: #282c34;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-bottom: 2rem;
   border-radius: 8px;
+  width: 1000rem;
 }
 
 .nav-link {
