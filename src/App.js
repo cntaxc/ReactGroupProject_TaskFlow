@@ -25,7 +25,7 @@ function App() {
         <nav className="navbar">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/addtask" className="nav-link">AddTask</Link>
-          <Link to="/viewtask" className="nav-link">ViewTask</Link>
+          <Link to="/tasklist" className="nav-link">ViewTask</Link>
         </nav>
 
         <main className="main-content">
