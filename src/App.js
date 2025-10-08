@@ -85,7 +85,7 @@ function Footer() {
   return (
     <footer className="footer bg-dark text-light py-3 mt-auto"> 
       <div className="container text-center">
-        <p className="mb-0">© 2025 TaskManager | Developed by Coach B</p>
+        <p className="mb-0">© 2025 TaskManager | Developed by Coach CC</p>
       </div>
     </footer>
   );
