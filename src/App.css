@@ -59,3 +59,14 @@ body {
   background-color: #212529;
   text-align: center;
 }
+
+.main-content > .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.home-content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
