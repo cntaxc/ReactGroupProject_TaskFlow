@@ -79,7 +79,7 @@ function App() {
         <main className="main-content flex-grow-1 h-100">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addtask" element={
+            <Route path="/add" element={
               <AddTaskView addTask={addTask} />
             } />
             <Route path="/tasklist" element={
