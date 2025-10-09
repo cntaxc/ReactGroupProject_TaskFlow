@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
-import { TaskContext } from '../contexts/TaskContext';
+import React from 'react';
 
-function TaskListView() {
-    const { tasks, setTasks } = useContext(TaskContext);
-
+function TaskListView({ tasks, setTasks, deleteTask }) {
     const markCompleted = (index) => {
         setTasks(prevTasks => {
             const updatedTasks = [...prevTasks];
@@ -24,11 +21,17 @@ function TaskListView() {
                                 <p className="card-text">{task[1]}</p>
                                 <p className="card-text">Priority: {task[2]}</p>
                                 <button
-                                    className="btn btn-primary"
+                                    className="btn btn-primary me-2"
                                     onClick={() => markCompleted(index)}
                                     disabled={task[2] === "Completed"}
                                 >
                                     Complete
+                                </button>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => deleteTask(index)}
+                                >
+                                    Delete
                                 </button>
                             </div>
                         </div>

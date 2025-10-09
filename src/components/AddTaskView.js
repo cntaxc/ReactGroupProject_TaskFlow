@@ -1,8 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { TaskContext } from '../contexts/TaskContext';
+import React, { useState } from 'react';
 
-function AddTaskView() {
-    const { tasks, setTasks } = useContext(TaskContext);
+function AddTaskView({ addTask }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
@@ -11,7 +9,7 @@ function AddTaskView() {
 
     const handleAddTask = () => {
         if (title.trim() && description.trim() && priority) {
-            setTasks([...tasks, [title, description, priority]]);
+            addTask([title, description, priority]);
             setTitle('');
             setDescription('');
             setPriority('');
