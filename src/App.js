@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import TaskListView from './components/TaskListView';
 import AddTaskView from './components/AddTaskView';
 import Header from './components/Header';
 
@@ -23,6 +22,15 @@ function App() {
     setTasks(prev => prev.filter((_, idx) => idx !== taskId));
   };
 
+  // Mark a task as completed
+  const markCompleted = (index) => {
+    setTasks(prevTasks => {
+      const updatedTasks = [...prevTasks];
+      updatedTasks[index][2] = "Completed";
+      return updatedTasks;
+    });
+  };
+
   useEffect(() => {
     document.title = "TaskFlow";
   }, []);
@@ -41,15 +49,12 @@ function App() {
     });
 
     return (
-      <div className="container">
+      <div className="container p-4">
         <h1>🦖 TaskFlow</h1>
         <p>Welcome to TaskFlow, your Task Management Application!</p>
-        <p>This application is designed to help you manage your tasks efficiently,
-          make you more productive, and keep track of your to-do list with ease.</p>
-
-        <div className="card" style={{ width: '18rem' }}>
+        <div className="card mb-4" style={{ width: '18rem' }}>
           <div className="card-body">
-            <h5 className="card-title">Uncompleted Tasks:</h5>
+            <h5 className="card-title">Uncompleted Tasks: {uncompletedTasks.length}</h5>
             <ul className="list-unstyled">
               <li className="mb-2">High: {priorityCount.High}</li>
               <li className="mb-2">Medium: {priorityCount.Medium}</li>
@@ -57,6 +62,35 @@ function App() {
             </ul>
           </div>
         </div>
+        <h2 className="fw-bold mb-3">Task List</h2>
+        <ul className="list-unstyled">
+          {tasks.map((task, index) => (
+            <li key={index} className="mb-3">
+              <div className="card" style={{ width: '18rem' }}>
+                <div className="card-body">
+                  <h5 className="card-title">{task[0]}</h5>
+                  <p className="card-text">{task[1]}</p>
+                  <p className="card-text">
+                    Priority: <span className={task[2] === "Completed" ? "text-success" : "text-secondary"}>{task[2]}</span>
+                  </p>
+                  <button
+                    className="btn btn-primary me-2"
+                    onClick={() => markCompleted(index)}
+                    disabled={task[2] === "Completed"}
+                  >
+                    Complete
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteTask(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
@@ -71,7 +105,6 @@ function App() {
     );
   }
 
-
   return (
     <Router>
       <Header />
@@ -81,9 +114,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/add" element={
               <AddTaskView addTask={addTask} />
-            } />
-            <Route path="/tasklist" element={
-              <TaskListView tasks={tasks} setTasks={setTasks} deleteTask={deleteTask} />
             } />
           </Routes>
         </main>
