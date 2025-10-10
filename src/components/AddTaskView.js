@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AddTaskView({ addTask }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
     const [options, setOptions] = useState(['Low', 'Medium', 'High']);
-    const [newOptionText, setNewOptionText] = useState('');
+    const [success, setSuccess] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleAddTask = () => {
         if (title.trim() && description.trim() && priority) {
@@ -13,6 +16,11 @@ function AddTaskView({ addTask }) {
             setTitle('');
             setDescription('');
             setPriority('');
+            setSuccess(true);
+            setTimeout(() => {
+                setSuccess(false);
+                navigate('/');
+            }, 1200);
         }
     };
 
@@ -24,7 +32,11 @@ function AddTaskView({ addTask }) {
             <p className="fs-5 lh-base" style={{ fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}>
                 Here you can add a new task to your TaskFlow application.
             </p>
-
+            {success && (
+                <div className="alert alert-success" role="alert">
+                    Task has been successfully added!
+                </div>
+            )}
             <div className="mb-3">
                 <label className="form-label fw-semibold">Task Title</label>
                 <input
