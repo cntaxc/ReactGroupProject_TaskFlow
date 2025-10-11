@@ -73,14 +73,28 @@ function App() {
   }
 
   function Footer() {
-    return (
-      <footer className="footer bg-dark text-light py-3 mt-auto">
-        <div className="container text-center">
-          <p className="mb-0">© 2025 TaskFlow | Created with React and Bootstrap</p>
-        </div>
-      </footer>
-    );
-  }
+  return (
+    <footer 
+      className="footer text-light py-4 mt-auto shadow-lg"
+      style={{
+        backgroundColor: '#121212',
+        borderTop: '2px solid #FFC107',
+      }}
+    >
+      <div className="container text-center">
+        <p 
+          className="mb-0 fw-semibold"
+          style={{
+            color: '#FFC107',
+            letterSpacing: '0.5px',
+          }}
+        >
+          © 2025 TaskFlow | Created with React and Bootstrap
+        </p>
+      </div>
+    </footer>
+  );
+}
 
   return (
     <Router>
