@@ -33,85 +33,85 @@ function App() {
   }, []);
 
   function Home() {
-  const uncompletedTasks = tasks.filter(task => task[2] !== "Completed");
+    const uncompletedTasks = tasks.filter(task => task[2] !== "Completed");
 
-  const priorityCount = { High: 0, Medium: 0, Low: 0 };
-  uncompletedTasks.forEach(task => {
-    if (priorityCount[task[2]] !== undefined) {
-      priorityCount[task[2]] += 1;
-    }
-  });
+    const priorityCount = { High: 0, Medium: 0, Low: 0 };
+    uncompletedTasks.forEach(task => {
+      if (priorityCount[task[2]] !== undefined) {
+        priorityCount[task[2]] += 1;
+      }
+    });
 
-  return (
-    <div
-      className="container-fluid py-5"
-      style={{
-        minHeight: '90vh',
-        backgroundColor: '#121212',
-        color: '#fff'
-      }}
-    >
-      <div className="container">
-        {
-          
-        }
-        <div
-          className="card text-center mx-auto mb-5 shadow-lg"
-          style={{
-            backgroundColor: '#1e1e1e',
-            border: 'none',
-            borderRadius: '15px',
-            maxWidth: '1200px',
-            color: '#fff'
-          }}
-        >
-          <div className="card-body">
-            <h1
-              className="fw-bold mb-3"
-              style={{ color: '#FFC107', letterSpacing: '1px' }}
-            >
-              TASKFLOW
-            </h1>
-            <p className="lead text-secondary mb-4">
-              Welcome to TaskFlow your ultimate task management companion.
-              Organize, prioritize, and track your tasks effortlessly with an intuitive
-              interface designed to boost your productivity. Whether you're managing
-              daily goals or long-term projects, TaskFlow keeps you focused and in control
-              every step of the way.
-            </p>
+    return (
+      <div
+        className="container-fluid py-5"
+        style={{
+          minHeight: '90vh',
+          backgroundColor: '#121212',
+          color: '#fff'
+        }}
+      >
+        <div className="container">
+          {
 
-            <div className="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-              <span><strong className="text-secondary">Uncompleted:</strong> {uncompletedTasks.length}</span>
-              <span><strong className="text-danger">High:</strong> {priorityCount.High}</span>
-              <span><strong className="text-warning">Medium:</strong> {priorityCount.Medium}</span>
-              <span><strong className="text-success">Low:</strong> {priorityCount.Low}</span>
+          }
+          <div
+            className="card text-center mx-auto mb-5 shadow-lg"
+            style={{
+              backgroundColor: '#1e1e1e',
+              border: 'none',
+              borderRadius: '15px',
+              maxWidth: '1200px',
+              color: '#fff'
+            }}
+          >
+            <div className="card-body">
+              <h1
+                className="fw-bold mb-3"
+                style={{ color: '#FFC107', letterSpacing: '1px' }}
+              >
+                TASKFLOW
+              </h1>
+              <p className="lead text-secondary mb-4">
+                Welcome to TaskFlow your ultimate task management companion.
+                Organize, prioritize, and track your tasks effortlessly with an intuitive
+                interface designed to boost your productivity. Whether you're managing
+                daily goals or long-term projects, TaskFlow keeps you focused and in control
+                every step of the way.
+              </p>
+
+              <div className="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                <span><strong className="text-secondary">Uncompleted:</strong> {uncompletedTasks.length}</span>
+                <span><strong className="text-danger">High:</strong> {priorityCount.High}</span>
+                <span><strong className="text-warning">Medium:</strong> {priorityCount.Medium}</span>
+                <span><strong className="text-success">Low:</strong> {priorityCount.Low}</span>
+              </div>
+            </div>
+          </div>
+
+          {
+
+          }
+          <div className="text-center mb-4">
+            <h4 className="fw-bold" style={{ color: '#FFC107' }}>Task List</h4>
+          </div>
+
+          {
+
+          }
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <TaskListView
+                tasks={tasks}
+                markCompleted={markCompleted}
+                deleteTask={deleteTask}
+              />
             </div>
           </div>
         </div>
-
-        {
-
-        }
-        <div className="text-center mb-4">
-          <h4 className="fw-bold" style={{ color: '#FFC107' }}>Task List</h4>
-        </div>
-
-        {
-          
-        }
-        <div className="row justify-content-center">
-          <div className="col-md-10">
-            <TaskListView
-              tasks={tasks}
-              markCompleted={markCompleted}
-              deleteTask={deleteTask}
-            />
-          </div>
-        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   function Footer() {
     return (
@@ -127,7 +127,7 @@ function App() {
             © 2025 <span style={{ color: '#FFC107' }}>TaskFlow</span> | Created with React & Bootstrap
           </p>
           <p className="mb-0 fw-semibold" style={{ color: '#bbb', letterSpacing: '0.5px' }} >
-            Contact: CSselrahC | cntaxc 
+            Contact: CSselrahC | cntaxc
           </p>
         </div>
       </footer>
