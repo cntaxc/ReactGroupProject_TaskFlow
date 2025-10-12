@@ -7,15 +7,15 @@ function Header() {
   return (
     <Navbar 
       expand="lg" 
-      bg="dark" 
-      variant="dark" 
       className="shadow-lg py-3 sticky-top"
       style={{
         backgroundColor: '#121212',
-        borderBottom: '2px solid #FFC107',
       }}
     >
       <Container>
+        {
+
+        }
         <Navbar.Brand 
           as={Link} 
           to="/" 
@@ -26,7 +26,16 @@ function Header() {
           TaskFlow
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
+        {
+
+        }
+        <Navbar.Toggle 
+          aria-controls="basic-navbar-nav" 
+          className="border-0"
+          style={{
+            backgroundColor: '#FFC107',
+          }}
+        />
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
@@ -34,19 +43,36 @@ function Header() {
               as={Link}
               to="/"
               className="mx-3 fw-semibold text-light"
-              style={{ transition: 'color 0.3s ease' }}
-              onMouseEnter={(e) => e.target.style.color = '#FFC107'}
-              onMouseLeave={(e) => e.target.style.color = '#ffffff'}
+              style={{ 
+                transition: 'color 0.3s, transform 0.3s' 
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#FFC107';
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#ffffff';
+                e.target.style.transform = 'scale(1)';
+              }}
             >
               Home
             </Nav.Link>
+
             <Nav.Link
               as={Link}
               to="/add"
               className="mx-3 fw-semibold text-light"
-              style={{ transition: 'color 0.3s ease' }}
-              onMouseEnter={(e) => e.target.style.color = '#FFC107'}
-              onMouseLeave={(e) => e.target.style.color = '#ffffff'}
+              style={{ 
+                transition: 'color 0.3s, transform 0.3s' 
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#FFC107';
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#ffffff';
+                e.target.style.transform = 'scale(1)';
+              }}
             >
               Add Task
             </Nav.Link>
