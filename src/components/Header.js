@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <Navbar 
-      expand="lg" 
+    <Navbar
+      expand="lg"
       className="shadow-lg py-3 sticky-top"
       style={{
         backgroundColor: '#121212',
@@ -16,9 +16,9 @@ function Header() {
         {
 
         }
-        <Navbar.Brand 
-          as={Link} 
-          to="/" 
+        <Navbar.Brand
+          as={Link}
+          to="/"
           className="fw-bold text-uppercase d-flex align-items-center"
           style={{ color: '#FFC107', letterSpacing: '1px' }}
         >
@@ -29,8 +29,8 @@ function Header() {
         {
 
         }
-        <Navbar.Toggle 
-          aria-controls="basic-navbar-nav" 
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
           className="border-0"
           style={{
             backgroundColor: '#FFC107',
@@ -43,8 +43,8 @@ function Header() {
               as={Link}
               to="/"
               className="mx-3 fw-semibold text-light"
-              style={{ 
-                transition: 'color 0.3s, transform 0.3s' 
+              style={{
+                transition: 'color 0.3s, transform 0.3s'
               }}
               onMouseEnter={(e) => {
                 e.target.style.color = '#FFC107';
@@ -62,8 +62,8 @@ function Header() {
               as={Link}
               to="/add"
               className="mx-3 fw-semibold text-light"
-              style={{ 
-                transition: 'color 0.3s, transform 0.3s' 
+              style={{
+                transition: 'color 0.3s, transform 0.3s'
               }}
               onMouseEnter={(e) => {
                 e.target.style.color = '#FFC107';
